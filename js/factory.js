@@ -9,7 +9,7 @@ factory('contactsServices', function($http, $rootScope, $location, API) {
   var contactsAPI = {};
 
     contactsAPI.node = function (url) {
-        var aws = true;
+        var aws = false;
         var host = "http://localhost:3000/";
         if (aws) {
             host = "http://poly-app-env-mybnxvpvjz.elasticbeanstalk.com/";

@@ -20,6 +20,7 @@ controller('searchController', function($scope, $rootScope, $timeout, contactsSe
 	$scope.runSearch = function () {
 		var text = $scope.SearchText;
 		console.log("Search Text: "+text);
+		$.cookie("search-text", text, { expires: 100 });
 		if (text === "") {
 			$scope.resetResults();
 			return;
@@ -42,7 +43,8 @@ controller('searchController', function($scope, $rootScope, $timeout, contactsSe
 	}
 	
 	$scope.resetResults();
-	
+	$scope.SearchText = $.cookie("search-text");
+	$scope.runSearch();
 }).
 
 controller('homeController', function($scope, $rootScope, $stateParams, $timeout, contactsServices, API) {
