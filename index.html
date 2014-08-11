@@ -1,0 +1,146 @@
+
+
+<!DOCTYPE html>
+<!--[if  IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html lang="en" class="no-js"> 
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>
+Contacts  
+  </title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="bower_components/platform/platform.js"></script>
+
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+  <!--
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="jquery-ui-1.10.4.custom/css/smoothness/jquery-ui-1.10.4.custom.css"/>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+
+-->
+  <link rel="stylesheet" href="css/app.css"/>
+
+<link rel="import" href="bower_components/font-roboto/roboto.html"> 
+<link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="bower_components/paper-input/paper-input.html">
+<link rel="import" href="bower_components/paper-button/paper-button.html">
+<link rel="import" href="bower_components/paper-toast/paper-toast.html">
+	
+</head>
+
+<body  unresolved touch-action="auto"
+       data-ng-app="ContactsApp"
+       data-ng-controller="applicationController"
+       data-ng-init="initApp()">
+
+<core-header-panel>
+    
+  <core-toolbar>
+	<paper-tabs id="tabs" selected="details" self-end>
+	<paper-tab id="detailsTab" name="details">Details</paper-tab>
+	<paper-tab id="searchTab" name="search">Search</paper-tab>
+	</paper-tabs>
+  </core-toolbar>
+
+  <!-- main page content will go here --> 
+<div class="content">
+  <div data-ui-view="" id="contentView" class="container"  ></div>
+
+<footer>
+ <p>&copy; JJBSW 2014</p>
+</footer>
+
+
+</div>
+</core-header-panel>
+       
+
+
+<script>
+var tabs = document.querySelector('#tabs');
+var _currentTab = "details";
+tabs.addEventListener('core-select', function() {
+    console.log("Selected: " + tabs.selected);
+    if (tabs.selected === _currentTab) {
+	return;
+    }
+    switch (tabs.selected) {
+	case "search":
+		window.location = "#/search/";
+		break;
+	default:
+		window.location = "#/home/";
+    }
+    _currentTab = tabs.selected;
+});
+
+</script>
+
+<!--
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-route.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-sanitize.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-animate.min.js"></script>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>  
+
+<script src="bower_components/angular-ui/build/angular-ui.js"></script>
+
+<script src="jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.js"></script> 
+
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+
+-->
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+<script src="bower_components/ng-polymer-elements/ng-polymer-elements.js"></script>
+
+
+      <!--
+<script src="js/combobox.js"></script>	
+<script src="bower_components/angularjs-modal-service/src/createDialog.js"></script>
+
+-->
+<script src="js/cookies.js"></script>
+
+<script src="js/my.js"></script>  
+
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/factory.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+
+  
+</body>
+</html>

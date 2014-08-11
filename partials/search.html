@@ -1,0 +1,24 @@
+
+
+<paper-input label="SearchText" floatingLabel data-ng-keyup="runSearch($event)" data-ng-model="SearchText"></paper-input>
+
+
+
+<div>Results: {{ SearchResults.Count }}</div>
+
+<div class="resultRow" data-ng-repeat="row in SearchResults.Results">
+    
+    <img src="img/contact.jpg"/>
+    
+    <div class="resultContainer" data-ng-click="selectContact(row.ID)">
+    <div class="resultBlock">
+    <span class="resultName">{{ row.FirstName }} {{ row.Surname }}</span>
+    <span class="resultEmail"><a href="mailto:{{ row.Email }}">{{ row.Email }}</a> </span>
+    </div>
+    <div class="resultBlock">
+    <span class="resultMobile"><b>Mobile:</b> <i>{{ row.Mobile }}</i> </span>
+    <span class="resultPhone"><b>Phone:</b> <i>{{ row.Phone }}</i> </span>
+    </div>
+    </div>
+    
+</div>

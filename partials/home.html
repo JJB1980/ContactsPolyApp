@@ -1,0 +1,20 @@
+
+
+<paper-input label="ID" floatingLabel data-ng-blur="loadContact()" data-ng-model="Contact.ID"></paper-input>
+<paper-input label="First Name" floatingLabel 
+             data-ng-model="Contact.FirstName"></paper-input>
+<span class="error-message" data-ng-show="Error.FirstName">First Name is Required</span>
+<paper-input label="Surname" floatingLabel 
+             data-ng-model="Contact.Surname"></paper-input>
+<span class="error-message" data-ng-show="Error.Surname">Surname is Required</span>
+<paper-input label="Email" floatingLabel data-ng-model="Contact.Email"></paper-input>
+<paper-input label="Mobile" floatingLabel data-ng-model="Contact.Mobile"></paper-input>
+<paper-input label="Phone" floatingLabel data-ng-model="Contact.Phone"></paper-input>
+
+<div>
+   <paper-button class="my-button btn-save" data-ng-click="saveContact()" label="Save" raisedButton></paper-button>
+   <paper-button class="my-button btn-clear" data-ng-click="clearContact()" label="Clear" raisedButton></paper-button>
+   <paper-button class="my-button btn-copy" data-ng-click="copyContact()" label="Copy" raisedButton></paper-button>
+</div>
+
+<paper-toast id="messageToast" text="{{ Action.message }}""></paper-toast>
