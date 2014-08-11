@@ -159,8 +159,14 @@ footer {
     box-shadow: 3px 3px 3px #888888;
     min-height: 4em;
     width: 100%;
+    min-width: 20em;
 }
-
+.resultContainer {
+    display: block;
+    float: right; 
+    width: 70%;
+    cursor: pointer;
+}
 .resultName {
     display: block;
     position: relative;
@@ -190,12 +196,6 @@ footer {
     float: right;
     width: 100%;
     padding-bottom: 1em;
-}
-.resultContainer {
-    display: block;
-    float: right; 
-    width: 70%;
-    cursor: pointer;
 }
 
 /****** Polymer ***/
