@@ -6,11 +6,11 @@
 
 <div>Results: {{ SearchResults.Count }}</div>
 
-<div class="resultRow" data-ng-repeat="row in SearchResults.Results">
+<div class="resultRow" data-ng-repeat="row in SearchResults.Results" data-ng-click="selectContact(row.ID)">
     
     <img src="img/contact.jpg"/>
     
-    <div class="resultContainer" data-ng-click="selectContact(row.ID)">
+    <div class="resultContainer" >
     <div class="resultBlock">
     <span class="resultName">{{ row.FirstName }} {{ row.Surname }}</span>
     <span class="resultEmail"><a href="mailto:{{ row.Email }}">{{ row.Email }}</a> </span>

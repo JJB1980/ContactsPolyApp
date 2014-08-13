@@ -46,8 +46,7 @@ footer {
 	text-align: center;
 	position: relative;
 	float: left;
-	top: 4em;
-	margin: 3em;
+	margin: 1em;
 }
 
 .activeNav {
@@ -152,7 +151,7 @@ footer {
 
 .resultRow {
     border: 1px solid #C2C2D6;
-    background-color: #E6E6FA;
+    background-color: #E6F0FF;
     border-radius: 10px;
     padding: 1em;
     margin: 0.5em;
@@ -160,24 +159,24 @@ footer {
     min-height: 4em;
     width: 100%;
     min-width: 20em;
+    cursor: pointer;
 }
 .resultContainer {
     display: block;
     float: right; 
     width: 70%;
-    cursor: pointer;
 }
 .resultName {
     display: block;
     position: relative;
     float: left;
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 .resultEmail {
     display: block;
     position: relative;
     float: right;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 .resultPhone {
     display: block;
@@ -196,6 +195,9 @@ footer {
     float: right;
     width: 100%;
     padding-bottom: 1em;
+}
+.buttonsContainer {
+    margin-top: 1em;
 }
 
 /****** Polymer ***/
@@ -235,7 +237,31 @@ footer {
     }
   }
 
+paper-button
+{
+    color: black;
+    width: 10em;
+}
+paper-button.colored {
+    width: 10em;
+      color: #4285f4;
+      fill: #4285f4;
+    }
 
+    paper-button[raisedButton].colored {
+      background: #4285f4;
+      color: #fff;
+    }
+
+    paper-button[raisedButton].colored #ripple,
+    paper-button[raisedButton].colored::shadow #ripple {
+      color: #2a56c6;
+    }
+
+    paper-button[raisedButton].colored #focusBg,
+    paper-button[raisedButton].colored::shadow #focusBg {
+      background: #3367d6;
+    }
 
 .my-button {
     width: 10em;

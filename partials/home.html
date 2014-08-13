@@ -7,14 +7,23 @@
 <paper-input label="Surname" floatingLabel 
              data-ng-model="Contact.Surname"></paper-input>
 <span class="error-message" data-ng-show="Error.Surname">Surname is Required</span>
+
+<paper-radio-group ng-model="Contact.Gender">
+        <paper-radio-button name="male" label="Male"></paper-radio-button>
+        <paper-radio-button name="female" label="Female"></paper-radio-button>
+</paper-radio-group>
+
+
 <paper-input label="Email" floatingLabel data-ng-model="Contact.Email"></paper-input>
 <paper-input label="Mobile" floatingLabel data-ng-model="Contact.Mobile"></paper-input>
 <paper-input label="Phone" floatingLabel data-ng-model="Contact.Phone"></paper-input>
 
-<div>
-   <paper-button class="my-button btn-save" data-ng-click="saveContact()" label="Save" raisedButton></paper-button>
-   <paper-button class="my-button btn-clear" data-ng-click="clearContact()" label="Clear" raisedButton></paper-button>
-   <paper-button class="my-button btn-copy" data-ng-click="copyContact()" label="Copy" raisedButton></paper-button>
+<paper-checkbox id="paper-checkbox" ng-model="Contact.Archived" label="Archived"></paper-checkbox> 
+
+<div class="buttonsContainer">
+   <paper-button class="colored" data-ng-click="saveContact()" label="Save" raisedButton></paper-button>
+   <paper-button class="colored" data-ng-click="clearContact()" label="Clear" raisedButton></paper-button>
+   <paper-button class="colored" data-ng-click="copyContact()" label="Copy" raisedButton></paper-button>
 </div>
 
 <paper-toast id="messageToast" text="{{ Action.message }}""></paper-toast>

@@ -3,18 +3,20 @@
 /* Controllers */
 angular.module('ContactsApp.controllers', ['ng-polymer-elements']).
 
-controller('applicationController', function($scope, $rootScope, $timeout, contactsServices, API) {
+controller('applicationController', function($scope, $location, contactsServices) {
 
 	$scope.initApp = function () {
 		contactsServices.initApplication().success(function (response) {
 		}).error(function (response) {
 			window.location = "#/offline/";
+			//$location.path("#/offline/").replace();
+			//$scope.$apply()
 		});
 	};
 			
 }).
 
-controller('searchController', function($scope, $rootScope, $timeout, contactsServices, API) {
+controller('searchController', function($scope, $location, contactsServices) {
 
 	
 	$scope.runSearch = function () {
@@ -34,6 +36,8 @@ controller('searchController', function($scope, $rootScope, $timeout, contactsSe
 	$scope.selectContact = function (id) {
 		console.log("Selected ID: "+id);
 		window.location = "#/home/"+id;
+		//$location.path("#/home/"+id).replace();
+		//$scope.$apply()
 	}
 	
 	$scope.resetResults = function () {
@@ -47,7 +51,7 @@ controller('searchController', function($scope, $rootScope, $timeout, contactsSe
 	$scope.runSearch();
 }).
 
-controller('homeController', function($scope, $rootScope, $stateParams, $timeout, contactsServices, API) {
+controller('homeController', function($scope, $stateParams, contactsServices, API) {
 	
 	$scope.Action = {};
 	$scope.Action.message = "";
@@ -62,7 +66,7 @@ controller('homeController', function($scope, $rootScope, $stateParams, $timeout
 	}
 	
 	$scope.saveContact = function () {
-		console.log($scope.Contact.ID);
+		//console.log($scope.Contact.ID);
 		$scope.Error.FirstName = false;
 		$scope.Error.Surname = false;
 		if ($scope.Contact.FirstName == "") {
@@ -74,6 +78,7 @@ controller('homeController', function($scope, $rootScope, $stateParams, $timeout
 		if ($scope.Error.FirstName || $scope.Error.Surname) {
 			return
 		}
+		console.log($scope.Contact);
 		if ($scope.Contact.ID == "" || $scope.Contact.ID == undefined) {
 			contactsServices.newContact(API.toJsonUri($scope.Contact)).success(function (response) {
 				$scope.Contact.ID = response.ID;
@@ -100,6 +105,7 @@ controller('homeController', function($scope, $rootScope, $stateParams, $timeout
 				//alert(response.message);
 				$scope.displayMessage(response.message);
 			}
+			console.log(response.Contact);
 			$scope.Contact = response.Contact;
 		});
 	}

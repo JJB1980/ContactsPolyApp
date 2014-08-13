@@ -41,13 +41,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 var _offline = false;
 
-app.run(function ($rootScope, $timeout, API) {
+app.run(function ($rootScope, $timeout) {
   $rootScope.$on('$stateChangeStart', function (event, next) {
     //console.log(next);
     console.log("Page: "+next.name);
     if (next.name === "offline") {
       _offline = true;
-      return;
     }
     if (_offline) {
       event.preventDefault();
