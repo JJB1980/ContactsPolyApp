@@ -41,6 +41,15 @@ h2 {
 	font-size: 1.5em;
 }
 
+#contentView.ng-enter {
+    -webkit-transition:0.8s linear all;
+    transition:0.8s linear all;
+    opacity: 0;
+}
+#contentView.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
 footer {
 	width: 90%;
 	text-align: center;
@@ -49,13 +58,6 @@ footer {
 	margin: 1em;
 }
 
-.activeNav {
-	background-color: #0000CC;
-}
-
-.activeNavLink {
-	color: #FFFFFF;
-}
 
 .noIco {
 	list-style: none;
@@ -63,47 +65,6 @@ footer {
 
 .bold {
 	font-weight: bold;
-}
-
-.itemTable{
-	width: 25em;
-}
-
-.itemTable td:first-child  {
-	color: #9999CC;
-	text-align: right;
-	
-}
-
-.itemsTable {
-	
-}
-
-.itemsTable th {
-	color: #9999CC;	
-	font-weight: normal;
-}
-
-.itemsTable tbody tr:nth-child(odd) {
-	background-color: #F5FAFF;
-}
-
-.itemsTable tbody tr:hover {
-	background-color: #F0F0FF;
-}
-
-.inputTable {
-	margin-bottom: 1em;
-}
-
-.inputTable td {
-	border: none;
-}
-
-.inputTable td:first-child  {
-	color: #9999CC;
-	text-align: right;
-	
 }
 
 .full-width {
@@ -160,7 +121,24 @@ footer {
     width: 100%;
     min-width: 20em;
     cursor: pointer;
+    /*transition: 0.5s linear all;*/
 }
+.resultRow.ng-leave-stagger,
+.resultRow.ng-enter-stagger {
+    transition-delay: 0.1s;
+    -webkit-transition-delay: 0.1s;
+    transition-duration: 0;
+    -webkit-transition-duration: 0;
+}
+.resultRow.ng-enter {
+    -webkit-transition:0.5s linear all;
+    transition:0.5s linear all;
+    opacity: 0;
+}
+.resultRow.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
 .resultContainer {
     display: block;
     float: right; 

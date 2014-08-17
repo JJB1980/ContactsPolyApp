@@ -6,10 +6,11 @@
 
 <div>Results: {{ SearchResults.Count }}</div>
 
+
 <div class="resultRow" data-ng-repeat="row in SearchResults.Results" data-ng-click="selectContact(row.ID)">
     
     <img src="img/contact.jpg"/>
-    
+     
     <div class="resultContainer" >
     <div class="resultBlock">
     <span class="resultName">{{ row.FirstName }} {{ row.Surname }}</span>

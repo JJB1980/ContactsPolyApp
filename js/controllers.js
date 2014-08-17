@@ -1,7 +1,7 @@
 'use strict';
 
 /* Controllers */
-angular.module('ContactsApp.controllers', ['ng-polymer-elements']).
+angular.module('ContactsApp.controllers', ['ng-polymer-elements','ngAnimate']).
 
 controller('applicationController', function($scope, $location, contactsServices) {
 
@@ -16,7 +16,7 @@ controller('applicationController', function($scope, $location, contactsServices
 			
 }).
 
-controller('searchController', function($scope, $location, contactsServices) {
+controller('searchController', function($scope, $timeout, $location, contactsServices) {
 
 	
 	$scope.runSearch = function () {
@@ -34,8 +34,10 @@ controller('searchController', function($scope, $location, contactsServices) {
 	};
 
 	$scope.selectContact = function (id) {
-		console.log("Selected ID: "+id);
-		window.location = "#/home/"+id;
+		$timeout(function () {
+			console.log("Selected ID: "+id);
+			window.location = "#/home/"+id;
+		},200);
 		//$location.path("#/home/"+id).replace();
 		//$scope.$apply()
 	}
