@@ -3,12 +3,15 @@
 /* Controllers */
 angular.module('ContactsApp.controllers', ['ng-polymer-elements','ngAnimate']).
 
-controller('applicationController', function($scope, $location, contactsServices) {
+controller('applicationController', function($scope, $location, $timeout, contactsServices) {
 
 	$scope.initApp = function () {
 		contactsServices.initApplication().success(function (response) {
-		}).error(function (response) {
-			window.location = "#/offline/";
+		}).error(function () {			
+			$timeout(function () {
+				console.log("offline");
+				window.location.assign("#/offline/");
+			},500);
 			//$location.path("#/offline/").replace();
 			//$scope.$apply()
 		});
@@ -36,7 +39,7 @@ controller('searchController', function($scope, $timeout, $location, contactsSer
 	$scope.selectContact = function (id) {
 		$timeout(function () {
 			console.log("Selected ID: "+id);
-			window.location = "#/home/"+id;
+			window.location.assign("#/home/"+id);
 		},200);
 		//$location.path("#/home/"+id).replace();
 		//$scope.$apply()
@@ -99,9 +102,9 @@ controller('homeController', function($scope, $stateParams, contactsServices, AP
 		//console.log($scope.Contact);
 		var id = $scope.Contact.ID;
 		console.log("ID: "+id);
+		$scope.resetContact();
 		if (id == "" || id == undefined)
 			return;
-		$scope.resetContact();
 		contactsServices.retrieveContact(id).success(function (response) {
 			if (response.status == "error") {
 				//alert(response.message);

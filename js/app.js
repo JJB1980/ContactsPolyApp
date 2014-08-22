@@ -45,12 +45,12 @@ app.run(function ($rootScope, $timeout) {
   $rootScope.$on('$stateChangeStart', function (event, next) {
     //console.log(next);
     console.log("Page: "+next.name);
-    if (next.name === "offline") {
-      _offline = true;
-    }
     if (_offline) {
       event.preventDefault();
       return;
+    }
+    if (next.name === "offline") {
+      _offline = true;
     }
     //console.log("menu_"+next.name);
     var name = next.name;

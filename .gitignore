@@ -1,0 +1,7 @@
+.elasticbeanstalk/
+node_modules/
+
+bower_components/
+
+jquery-ui-1.10.4.custom/
+
